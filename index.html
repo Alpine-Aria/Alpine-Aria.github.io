@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b2b52" />
 
-  <!-- SEO basics (stealth + keyword clarity) -->
-  <title>Alpine Aria | Calm Mountain Safety Companion App</title>
-  <meta name="description" content="Alpine Aria is a calm-first mountain safety companion app in development for ski resorts and mountain days—built for skiers, snowboarders, and bystanders." />
+  <!-- Stealthy SEO (kept mostly in meta, not in big on-page paragraphs) -->
+  <title>Alpine Aria | Calm Mountain Companion App</title>
+  <meta name="description" content="Alpine Aria is a calm-first mountain companion app in development for ski resorts and mountain days. Private early access updates." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="./" />
 
-  <!-- Social share -->
+  <!-- Social -->
   <meta property="og:title" content="Alpine Aria — Your calm companion on every mountain" />
-  <meta property="og:description" content="A calm-first mountain safety companion app in development for skiers, riders, and bystanders." />
+  <meta property="og:description" content="In development. Private early access updates." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="resources/alpine-aria-home-hero.jpg" />
 
   <!-- Icons -->
   <link rel="icon" href="resources/favicon.ico" />
-  
-  <!-- Minimal structured data (keeps category clear, keeps mechanics private) -->
+  <link rel="apple-touch-icon" href="resources/icon.png" />
+
+  <!-- Minimal schema (optional but harmless for SEO) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -28,7 +28,7 @@
     "name":"Alpine Aria",
     "applicationCategory":"UtilitiesApplication",
     "operatingSystem":"iOS, Android",
-    "description":"A calm-first mountain safety companion app in development for ski resorts and mountain days.",
+    "description":"A calm-first mountain companion app in development for ski resorts and mountain days.",
     "image":"resources/alpine-aria-home-hero.jpg"
   }
   </script>
@@ -45,12 +45,11 @@
       --card:rgba(255,255,255,.72);
       --shadow:0 18px 60px rgba(11,27,43,.12);
       --shadow2:0 10px 28px rgba(11,27,43,.10);
-      --r1:18px;
-      --r2:28px;
       --focus:rgba(31,95,215,.35);
       --max:1080px;
+      --r1:18px;
+      --r2:28px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -61,95 +60,134 @@
         radial-gradient(900px 520px at 70% 0%, rgba(31,95,215,.10), transparent 60%),
         radial-gradient(800px 480px at 18% 10%, rgba(191,240,218,.18), transparent 60%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
-      line-height:1.5;
+      line-height:1.45;
       overflow-x:hidden;
     }
-
-    /* ultra subtle “snow grain” */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
-      opacity:.12;
+      opacity:.10;
       mix-blend-mode:multiply;
     }
-
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .top{
-      padding:22px 0 0;
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Header */
+    header{
+      padding:16px 0 0;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
+      gap:12px;
     }
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:10px;
       text-decoration:none;
     }
     .brand img{
-      width:42px; height:42px; border-radius:16px;
+      width:40px; height:40px; border-radius:16px;
       box-shadow:var(--shadow2);
     }
     .brand strong{
       color:var(--blueDeep);
-      letter-spacing:.2px;
       font-weight:900;
+      letter-spacing:.2px;
     }
     .pill{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      padding:8px 12px;
+      padding:7px 11px;
       border-radius:999px;
       background:rgba(255,255,255,.74);
       border:1px solid rgba(214,228,243,.9);
       color:var(--blueDeep);
       font-weight:800;
       box-shadow:var(--shadow2);
-      font-size:13px;
+      font-size:12px;
       white-space:nowrap;
     }
 
-    .hero{
-      padding:34px 0 54px;
+    /* Main */
+    main{
+      padding:14px 0 26px;
       display:grid;
       grid-template-columns: 1fr;
-      gap:26px;
-      align-items:center;
-    }
-    @media (min-width: 980px){
-      .hero{grid-template-columns: 1.05fr .95fr; gap:42px; padding:46px 0 66px;}
+      gap:14px;
     }
 
+    /* Keep everything within the first screen on mobile */
+    .hero{
+      display:grid;
+      gap:10px;
+    }
     h1{
-      margin:12px 0 14px;
+      margin:10px 0 4px;
       color:var(--blueDeep);
-      font-size:clamp(34px, 3.8vw, 56px);
+      font-size:clamp(30px, 6vw, 52px);
       line-height:1.05;
       letter-spacing:-.6px;
     }
-    .sub{
-      margin:0 0 18px;
+    .tagline{
+      margin:0;
       color:var(--muted);
-      max-width:60ch;
-      font-size:clamp(16px, 1.4vw, 18px);
+      font-weight:700;
+      font-size:14px;
     }
 
-    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:10px;}
-    .input{
-      display:flex;
+    /* Preview FIRST on mobile */
+    .phone{
+      position:relative;
+      border-radius:34px;
+      padding:10px;
+      background:rgba(255,255,255,.55);
+      border:1px solid rgba(214,228,243,.95);
+      box-shadow:var(--shadow);
+    }
+    .phone img{
+      width:100%;
+      height:min(52vh, 420px); /* key: shows preview quickly on phones */
+      display:block;
+      border-radius:26px;
+      object-fit:cover;       /* keeps it teaser-y and hides lower UI */
+      object-position:50% 12%;
+    }
+    .fade{
+      position:absolute;
+      left:10px; right:10px;
+      bottom:10px;
+      height:62%; /* stronger concealment for stealth */
+      border-radius:0 0 26px 26px;
+      background:linear-gradient(180deg, rgba(255,255,255,0), rgba(247,251,255,.92) 45%, rgba(247,251,255,.98));
+      pointer-events:none;
+    }
+    .caption{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+    }
+
+    /* CTA */
+    .cta{
+      display:grid;
       gap:10px;
+      margin-top:4px;
+    }
+    .row{
+      display:flex;
       flex-wrap:wrap;
+      gap:10px;
       align-items:center;
     }
     input[type="email"]{
-      width:min(360px, 92vw);
-      padding:14px 14px;
+      flex:1 1 220px;
+      min-width: 180px;
+      padding:13px 14px;
       border-radius:16px;
       border:1px solid rgba(214,228,243,.95);
       background:rgba(255,255,255,.78);
@@ -157,222 +195,166 @@
       color:var(--ink);
     }
     input[type="email"]:focus{outline:2px solid var(--focus); outline-offset:2px;}
-
     .btn{
       border:0;
       cursor:pointer;
       border-radius:16px;
       padding:12px 16px;
-      font-weight:850;
+      font-weight:900;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      transition:transform .12s ease, filter .12s ease;
+      transition:transform .12s ease;
     }
-    .btn:focus{outline:2px solid var(--focus); outline-offset:2px;}
     .btn:hover{transform:translateY(-1px)}
-    .btnPrimary{
+    .btn:focus{outline:2px solid var(--focus); outline-offset:2px;}
+    .primary{
       color:#fff;
       background:linear-gradient(180deg, rgba(31,95,215,1), rgba(22,82,190,1));
       box-shadow:0 14px 34px rgba(31,95,215,.25);
     }
-    .btnGhost{
+    .ghost{
       background:rgba(255,255,255,.70);
       border:1px solid rgba(214,228,243,.95);
       color:var(--blueDeep);
       box-shadow:var(--shadow2);
     }
     .micro{
-      margin:8px 0 0;
-      font-size:13px;
+      margin:0;
       color:var(--muted);
+      font-size:12px;
     }
 
-    .phone{
-      position:relative;
-      width:min(420px, 92vw);
-      border-radius:34px;
-      padding:12px;
-      background:rgba(255,255,255,.55);
-      border:1px solid rgba(214,228,243,.95);
-      box-shadow:var(--shadow);
-      margin:0 auto;
-    }
-    .phone img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:26px;
-      /* keeps it teaser-y even if screenshot contains more info */
-      object-fit:cover;
-    }
-    .fade{
-      position:absolute;
-      left:12px; right:12px;
-      bottom:12px;
-      height:42%;
-      border-radius:0 0 26px 26px;
-      background:linear-gradient(180deg, rgba(255,255,255,0), rgba(247,251,255,.92) 45%, rgba(247,251,255,.98));
-      pointer-events:none;
-    }
-    .caption{
-      text-align:center;
-      margin:10px auto 0;
-      color:var(--muted);
-      font-size:13px;
-      max-width:48ch;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:22px;
-    }
-    @media (min-width: 900px){
-      .cards{grid-template-columns:repeat(3, 1fr);}
-    }
-    .card{
-      background:var(--card);
-      border:1px solid rgba(214,228,243,.95);
-      border-radius:var(--r2);
-      padding:16px 16px;
-      box-shadow:var(--shadow2);
-    }
-    .card h2{
-      margin:0 0 8px;
-      color:var(--blueDeep);
-      font-size:18px;
-      letter-spacing:-.2px;
-    }
-    .card p{margin:0; color:var(--muted)}
-
+    /* Ultra minimal footer + collapsible legal */
     footer{
-      padding:22px 0 34px;
-      border-top:1px solid rgba(214,228,243,.85);
+      padding:14px 0 22px;
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid rgba(214,228,243,.75);
       background:rgba(247,251,255,.55);
       backdrop-filter:blur(10px);
     }
-    .foot{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px 18px;
-      align-items:center;
-      justify-content:space-between;
-      color:var(--muted);
-      font-size:13px;
+    details{
+      max-width: 720px;
     }
-    .links a{
-      color:var(--blueDeep);
+    summary{
+      cursor:pointer;
       font-weight:800;
-      text-decoration:none;
-      margin-right:12px;
+      color:var(--blueDeep);
+      list-style:none;
     }
-    .links a:hover{text-decoration:underline}
+    summary::-webkit-details-marker{display:none}
+    details p{margin:8px 0 0}
 
-    /* accessibility */
+    /* Desktop: show copy + preview side-by-side, still compact */
+    @media (min-width: 980px){
+      main{
+        padding:22px 0 34px;
+        grid-template-columns: 1.0fr 1.0fr;
+        align-items:start;
+        gap:26px;
+      }
+      .phone img{
+        height: 520px;
+        object-position:50% 10%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+      body::before{opacity:.08}
+    }
+
     .sr-only{
       position:absolute!important;
       width:1px;height:1px;
-      padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;
-    }
-    @media (prefers-reduced-motion: reduce){
-      *{transition:none!important}
-      body::before{opacity:.10}
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      border:0;
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header class="top">
-      <a class="brand" href="./" aria-label="Alpine Aria">
-        <img src="resources/Icon.png" alt="Alpine Aria icon" />
+    <header>
+      <a class="brand" aria-label="Alpine Aria">
+        <img src="resources/icon.png" alt="Alpine Aria icon" />
         <strong>Alpine Aria</strong>
       </a>
-      <span class="pill">In development • Early access</span>
+      <span class="pill">Private early access</span>
     </header>
 
-    <main class="hero" aria-label="Alpine Aria teaser">
-      <section>
+    <main>
+      <!-- LEFT: teaser copy + CTA -->
+      <section class="hero" aria-label="Alpine Aria teaser">
         <h1>Your calm companion on every mountain.</h1>
 
-        <p class="sub">
-          Alpine Aria is a <strong>calm-first mountain safety companion app</strong> in development—
-          designed for <strong>skiers, snowboarders, and bystanders</strong> who want to feel more supported
-          when things don’t go as planned.
-        </p>
-
-        <div class="ctaRow" aria-label="Early access">
-          <div class="input">
+        <div class="cta" aria-label="Early access">
+          <div class="row">
             <label class="sr-only" for="email">Email</label>
             <input id="email" type="email" placeholder="Email address" autocomplete="email" inputmode="email" />
-            <button class="btn btnPrimary" type="button" onclick="joinUpdates()">Get early access updates</button>
+            <button class="btn primary" type="button" onclick="joinUpdates()">Request invite</button>
           </div>
-          <a class="btn btnGhost" href="mailto:alpine.aria.app@gmail.com?subject=Alpine%20Aria%20%E2%80%94%20Partner%20%2F%20Pilot%20Inquiry&body=Hi%20Alpine%20Aria%2C%0A%0AWe%E2%80%99re%20interested%20in%20a%20private%20partner%20conversation.%20Here%E2%80%99s%20a%20bit%20about%20us%3A%0A%0A-%20Organization%3A%0A-%20Role%3A%0A-%20What%20we%E2%80%99re%20exploring%3A%0A%0AThanks!">
-            Partner / pilot inquiry
-          </a>
-        </div>
 
-        <p class="micro">Private updates. No spam. Details intentionally limited during build.</p>
+          <div class="row">
+            <a class="btn ghost"
+               href="mailto:alpine.aria.app@gmail.com?subject=Alpine%20Aria%20%E2%80%94%20Partner%20Inquiry&body=Hi%20Alpine%20Aria%2C%0A%0AI%E2%80%99d%20like%20to%20request%20a%20private%20conversation.%0A%0A-%20Organization%3A%0A-%20Role%3A%0A-%20Notes%3A%0A">
+              Partner inquiry
+            </a>
+          </div>
 
-        <div class="cards" aria-label="Principles">
-          <div class="card">
-            <h2>Clear</h2>
-            <p>Minimal, human-centered design that reduces overwhelm.</p>
-          </div>
-          <div class="card">
-            <h2>Reassuring</h2>
-            <p>A calm tone—built to feel supportive in stressful moments.</p>
-          </div>
-          <div class="card">
-            <h2>Mountain-first</h2>
-            <p>Designed with outdoor conditions in mind from day one.</p>
-          </div>
+          <p class="micro">Limited invites. Details intentionally minimal during development.</p>
         </div>
       </section>
 
-      <aside aria-label="App preview">
+      <!-- RIGHT: preview immediately visible on mobile (no scrolling past extra sections) -->
+      <section aria-label="App preview">
         <div class="phone">
           <img
             src="resources/alpine-aria-home-hero.jpg"
-            alt="Alpine Aria mountain safety companion app home screen preview"
+            alt="Alpine Aria app home screen preview"
             loading="eager"
+            decoding="async"
+            fetchpriority="high"
           />
           <div class="fade" aria-hidden="true"></div>
         </div>
-        <p class="caption">
-          Preview: opening experience (teaser view).
-        </p>
-      </aside>
+        <p class="caption">Teaser preview (implementation details private for now).</p>
+      </section>
     </main>
-  </div>
 
-  <footer>
-    <div class="wrap foot">
-      <div class="links">
-        <a href="mailto:alpine.aria.app@gmail.com?subject=Alpine%20Aria%20%E2%80%94%20Early%20Access">Contact</a>
-      </div>
-      <div>
-        <strong>Note:</strong> Alpine Aria is not a medical device and does not provide medical advice.
-        In an emergency, contact local emergency services.
-      </div>
+    <footer>
       <div>© <span id="year"></span> Alpine Aria</div>
-    </div>
-  </footer>
+
+      <details>
+        <summary>Important note</summary>
+        <p>
+          Alpine Aria is not a medical device and does not provide medical advice.
+          In an emergency, contact local emergency services.
+        </p>
+      </details>
+
+      <div><a href="mailto:alpine.aria.app@gmail.com">alpine.aria.app@gmail.com</a></div>
+    </footer>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
     function joinUpdates(){
       const email = (document.getElementById("email").value || "").trim();
-      const subject = encodeURIComponent("Alpine Aria — Early Access Updates");
+      const subject = encodeURIComponent("Alpine Aria — Request Invite");
       const body = encodeURIComponent(
-        "Hi Alpine Aria,\n\nPlease add me to the private early access update list.\n\nEmail: " + (email || "[enter email here]") + "\n\nThanks!"
+        "Hi Alpine Aria,\n\nPlease add me to the private early access list.\n\nEmail: " + (email || "[enter email here]") + "\n\nThanks!"
       );
-      // Opens user's mail client (simple + GitHub Pages friendly)
-      window.location.href = "mailto:alpine.aria.app@gmail.com?subject=" + subject + "&body=" + body;
+      window.location.href = "mailto:@alpine.aria.app@gmail.com?subject=" + subject + "&body=" + body;
     }
   </script>
 </body>
