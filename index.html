@@ -1,7 +1,380 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 <head>
-  <title>Bianca Lauro | Product × Life Sciences × AI</title>
-  <h1>Bianca Lauro | Product × Life Sciences × AI</h1>
-  </head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b2b52" />
+
+  <!-- SEO basics (stealth + keyword clarity) -->
+  <title>Alpine Aria | Calm Mountain Safety Companion App</title>
+  <meta name="description" content="Alpine Aria is a calm-first mountain safety companion app in development for ski resorts and mountain days—built for skiers, snowboarders, and bystanders." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="./" />
+
+  <!-- Social share -->
+  <meta property="og:title" content="Alpine Aria — Your calm companion on every mountain" />
+  <meta property="og:description" content="A calm-first mountain safety companion app in development for skiers, riders, and bystanders." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="resources/alpine-aria-home-hero.jpg" />
+
+  <!-- Icons -->
+  <link rel="icon" href="resources/favicon.ico" />
+  <link rel="apple-touch-icon" href="resources/icon.png" />
+
+  <!-- Minimal structured data (keeps category clear, keeps mechanics private) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Alpine Aria",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"iOS, Android",
+    "description":"A calm-first mountain safety companion app in development for ski resorts and mountain days.",
+    "image":"resources/alpine-aria-home-hero.jpg"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg0:#f7fbff;
+      --bg1:#eef6ff;
+      --ink:#0b1b2b;
+      --muted:#4b627a;
+      --blue:#1f5fd7;
+      --blueDeep:#0b2b52;
+      --stroke:#d6e4f3;
+      --card:rgba(255,255,255,.72);
+      --shadow:0 18px 60px rgba(11,27,43,.12);
+      --shadow2:0 10px 28px rgba(11,27,43,.10);
+      --r1:18px;
+      --r2:28px;
+      --focus:rgba(31,95,215,.35);
+      --max:1080px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 70% 0%, rgba(31,95,215,.10), transparent 60%),
+        radial-gradient(800px 480px at 18% 10%, rgba(191,240,218,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+
+    /* ultra subtle “snow grain” */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
+      opacity:.12;
+      mix-blend-mode:multiply;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .top{
+      padding:22px 0 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+    .brand img{
+      width:42px; height:42px; border-radius:16px;
+      box-shadow:var(--shadow2);
+    }
+    .brand strong{
+      color:var(--blueDeep);
+      letter-spacing:.2px;
+      font-weight:900;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.74);
+      border:1px solid rgba(214,228,243,.9);
+      color:var(--blueDeep);
+      font-weight:800;
+      box-shadow:var(--shadow2);
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    .hero{
+      padding:34px 0 54px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:26px;
+      align-items:center;
+    }
+    @media (min-width: 980px){
+      .hero{grid-template-columns: 1.05fr .95fr; gap:42px; padding:46px 0 66px;}
+    }
+
+    h1{
+      margin:12px 0 14px;
+      color:var(--blueDeep);
+      font-size:clamp(34px, 3.8vw, 56px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width:60ch;
+      font-size:clamp(16px, 1.4vw, 18px);
+    }
+
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:10px;}
+    .input{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    input[type="email"]{
+      width:min(360px, 92vw);
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(214,228,243,.95);
+      background:rgba(255,255,255,.78);
+      box-shadow:0 12px 26px rgba(11,27,43,.08);
+      color:var(--ink);
+    }
+    input[type="email"]:focus{outline:2px solid var(--focus); outline-offset:2px;}
+
+    .btn{
+      border:0;
+      cursor:pointer;
+      border-radius:16px;
+      padding:12px 16px;
+      font-weight:850;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:transform .12s ease, filter .12s ease;
+    }
+    .btn:focus{outline:2px solid var(--focus); outline-offset:2px;}
+    .btn:hover{transform:translateY(-1px)}
+    .btnPrimary{
+      color:#fff;
+      background:linear-gradient(180deg, rgba(31,95,215,1), rgba(22,82,190,1));
+      box-shadow:0 14px 34px rgba(31,95,215,.25);
+    }
+    .btnGhost{
+      background:rgba(255,255,255,.70);
+      border:1px solid rgba(214,228,243,.95);
+      color:var(--blueDeep);
+      box-shadow:var(--shadow2);
+    }
+    .micro{
+      margin:8px 0 0;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .phone{
+      position:relative;
+      width:min(420px, 92vw);
+      border-radius:34px;
+      padding:12px;
+      background:rgba(255,255,255,.55);
+      border:1px solid rgba(214,228,243,.95);
+      box-shadow:var(--shadow);
+      margin:0 auto;
+    }
+    .phone img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:26px;
+      /* keeps it teaser-y even if screenshot contains more info */
+      object-fit:cover;
+    }
+    .fade{
+      position:absolute;
+      left:12px; right:12px;
+      bottom:12px;
+      height:42%;
+      border-radius:0 0 26px 26px;
+      background:linear-gradient(180deg, rgba(255,255,255,0), rgba(247,251,255,.92) 45%, rgba(247,251,255,.98));
+      pointer-events:none;
+    }
+    .caption{
+      text-align:center;
+      margin:10px auto 0;
+      color:var(--muted);
+      font-size:13px;
+      max-width:48ch;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:22px;
+    }
+    @media (min-width: 900px){
+      .cards{grid-template-columns:repeat(3, 1fr);}
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(214,228,243,.95);
+      border-radius:var(--r2);
+      padding:16px 16px;
+      box-shadow:var(--shadow2);
+    }
+    .card h2{
+      margin:0 0 8px;
+      color:var(--blueDeep);
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    .card p{margin:0; color:var(--muted)}
+
+    footer{
+      padding:22px 0 34px;
+      border-top:1px solid rgba(214,228,243,.85);
+      background:rgba(247,251,255,.55);
+      backdrop-filter:blur(10px);
+    }
+    .foot{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      align-items:center;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .links a{
+      color:var(--blueDeep);
+      font-weight:800;
+      text-decoration:none;
+      margin-right:12px;
+    }
+    .links a:hover{text-decoration:underline}
+
+    /* accessibility */
+    .sr-only{
+      position:absolute!important;
+      width:1px;height:1px;
+      padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+      body::before{opacity:.10}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./" aria-label="Alpine Aria">
+        <img src="resources/icon.png" alt="Alpine Aria icon" />
+        <strong>Alpine Aria</strong>
+      </a>
+      <span class="pill">In development • Early access</span>
+    </header>
+
+    <main class="hero" aria-label="Alpine Aria teaser">
+      <section>
+        <h1>Your calm companion on every mountain.</h1>
+
+        <p class="sub">
+          Alpine Aria is a <strong>calm-first mountain safety companion app</strong> in development—
+          designed for <strong>skiers, snowboarders, and bystanders</strong> who want to feel more supported
+          when things don’t go as planned.
+        </p>
+
+        <div class="ctaRow" aria-label="Early access">
+          <div class="input">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" type="email" placeholder="Email address" autocomplete="email" inputmode="email" />
+            <button class="btn btnPrimary" type="button" onclick="joinUpdates()">Get early access updates</button>
+          </div>
+          <a class="btn btnGhost" href="mailto:alpine.aria.app@gmail.com?subject=Alpine%20Aria%20%E2%80%94%20Partner%20%2F%20Pilot%20Inquiry&body=Hi%20Alpine%20Aria%2C%0A%0AWe%E2%80%99re%20interested%20in%20a%20private%20partner%20conversation.%20Here%E2%80%99s%20a%20bit%20about%20us%3A%0A%0A-%20Organization%3A%0A-%20Role%3A%0A-%20What%20we%E2%80%99re%20exploring%3A%0A%0AThanks!">
+            Partner / pilot inquiry
+          </a>
+        </div>
+
+        <p class="micro">Private updates. No spam. Details intentionally limited during build.</p>
+
+        <div class="cards" aria-label="Principles">
+          <div class="card">
+            <h2>Clear</h2>
+            <p>Minimal, human-centered design that reduces overwhelm.</p>
+          </div>
+          <div class="card">
+            <h2>Reassuring</h2>
+            <p>A calm tone—built to feel supportive in stressful moments.</p>
+          </div>
+          <div class="card">
+            <h2>Mountain-first</h2>
+            <p>Designed with outdoor conditions in mind from day one.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside aria-label="App preview">
+        <div class="phone">
+          <img
+            src="resources/alpine-aria-home-hero.jpg"
+            alt="Alpine Aria mountain safety companion app home screen preview"
+            loading="eager"
+          />
+          <div class="fade" aria-hidden="true"></div>
+        </div>
+        <p class="caption">
+          Preview: opening experience (teaser view).
+        </p>
+      </aside>
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="links">
+        <a href="mailto:alpine.aria.app@gmail.com?subject=Alpine%20Aria%20%E2%80%94%20Early%20Access">Contact</a>
+      </div>
+      <div>
+        <strong>Note:</strong> Alpine Aria is not a medical device and does not provide medical advice.
+        In an emergency, contact local emergency services.
+      </div>
+      <div>© <span id="year"></span> Alpine Aria</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function joinUpdates(){
+      const email = (document.getElementById("email").value || "").trim();
+      const subject = encodeURIComponent("Alpine Aria — Early Access Updates");
+      const body = encodeURIComponent(
+        "Hi Alpine Aria,\n\nPlease add me to the private early access update list.\n\nEmail: " + (email || "[enter email here]") + "\n\nThanks!"
+      );
+      // Opens user's mail client (simple + GitHub Pages friendly)
+      window.location.href = "mailto:alpine.aria.app@gmail.com?subject=" + subject + "&body=" + body;
+    }
+  </script>
+</body>
 </html>
